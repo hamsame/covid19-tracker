@@ -1,0 +1,64 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@100&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn {
+  padding: 3rem 0;
+  margin: 0 40% 15vh;
+}
+
+%grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.title {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.container div {
+  padding: 0 0 3rem;
+  @extend %grid;
+  font-family: 'Poppins', sans-serif !important;
+  div {
+    background: #eee;
+    border-radius: 20px;
+    font-weight: bold;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid {
+  @extend %grid;
+  grid-template-columns: repeat(1fr, 5);
+  div {
+    font-family: 'Inter', sans-serif !important;
+    text-align: center !important;
+  }
+}
+
+.info {
+  color: white;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .container div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .container div {
+    grid-template-columns: 1fr;
+  }
+}

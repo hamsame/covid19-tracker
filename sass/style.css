@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Poppins:wght@100&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn {
+  padding: 3rem 0;
+  margin: 0 40% 15vh;
+}
+
+.container div, .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.title {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.container div {
+  padding: 0 0 3rem;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.container div div {
+  background: #eee;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.grid {
+  -ms-grid-columns: (5)[1fr];
+      grid-template-columns: repeat(1fr, 5);
+}
+
+.grid div {
+  font-family: 'Inter', sans-serif !important;
+  text-align: center !important;
+}
+
+.info {
+  color: white;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .container div {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .container div {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=style.css.map */
