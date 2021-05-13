@@ -33,6 +33,8 @@ xml.send()
 
 // select list
 document.querySelector('.get-data').addEventListener('click', (e) => {
+  document.querySelector('#filter').style.display = 'block'
+
   const request = new XMLHttpRequest()
   request.open('GET', 'https://api.covid19api.com/summary', true)
   request.onload = async function () {
@@ -42,10 +44,10 @@ document.querySelector('.get-data').addEventListener('click', (e) => {
       const { TotalConfirmed, TotalRecovered, TotalDeaths, Country } = country
       const div = document.createElement('div')
       div.className = 'info red darken-1 white-text'
-      div.innerHTML += `<h5>${Country}</h5>`
-      div.innerHTML += `<p>Cases: ${TotalConfirmed}</p>`
-      div.innerHTML += `<p>Recovered: ${TotalRecovered}</p>`
-      div.innerHTML += `<p>Total Deaths: ${TotalDeaths}</p>`
+      div.innerHTML += `<h5 class="country-name">${Country.toLocaleString()}</h5>`
+      div.innerHTML += `<p>Cases: ${TotalConfirmed.toLocaleString()}</p>`
+      div.innerHTML += `<p>Recovered: ${TotalRecovered.toLocaleString()}</p>`
+      div.innerHTML += `<p>Total Deaths: ${TotalDeaths.toLocaleString()}</p>`
       div.innerHTML += `<br>`
 
       document.querySelector('.grid').appendChild(div)
@@ -54,4 +56,16 @@ document.querySelector('.get-data').addEventListener('click', (e) => {
 
   e.preventDefault()
   request.send()
+})
+
+document.querySelector('#filter').addEventListener('keyup', (e) => {
+  const text = e.target.value.toLowerCase()
+
+  for (i of document.querySelectorAll('.info')) {
+    const countryName = i.firstChild.textContent
+
+    countryName.toLowerCase().indexOf(text) != -1
+      ? (i.style.display = 'block')
+      : (i.style.display = 'none')
+  }
 })
